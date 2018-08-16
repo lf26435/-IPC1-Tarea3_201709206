@@ -15,7 +15,7 @@ public class IPC1Tarea3_201709206 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Inicializando tarea
     }
     
 }
