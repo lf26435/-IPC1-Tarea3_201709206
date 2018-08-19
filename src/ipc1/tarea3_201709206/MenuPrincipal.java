@@ -13,8 +13,17 @@ public class MenuPrincipal {
     }
     Scanner leer = new Scanner(System.in);
     String Registro[] = new String[5];//Para la opción de Usuarios
+    String ID[] = new String[6];//Para la opción de Promedio
+    int notas1[] = new int[4];
+    int notas2[] = new int[4];
+    int notas3[] = new int[4];
+    int notas4[] = new int[4];
+    int notas5[] = new int[4];
+    int notas6[] = new int[4];
+    int Promedio[] = new int[4];
     String User;//Para la opción de Usuarios
     int Numero,Num,Num1,Num2,Num3,contador,i,res;//Variables a utilizar
+    float promedio;
     public void MenuP() {//Menú Principal
         // Declarando variables
         int op;//op:opción elegida
@@ -82,7 +91,7 @@ public class MenuPrincipal {
                 Usuario();
         }
     }
-    public void RegistroUsuario(){
+    public void RegistroUsuario(){//https://www.youtube.com/watch?v=ezB_dR5Ogws <-- Link de video
         contador = 1;
         for(i=0;i<Registro.length;i++){
             System.out.println("Ingrese Usuario No."+contador);
@@ -94,8 +103,8 @@ public class MenuPrincipal {
         Usuario();
     }
     public void UserAscendentes(){
-        contador = 5;
-        for(i=Registro.length-1;i>=0;i--){
+        contador = 5;//Empezará de 5 a 1
+        for(i=Registro.length-1;i>=0;i--){//i-- Para retroceder al orden ingresado
             System.out.println("Usuario No."+contador+": "+Registro[i]);
             contador--;
         }
@@ -267,15 +276,39 @@ public class MenuPrincipal {
     }
     public void Promedio(){
         System.out.println("CALCULAR PROMEDIO\n");
-        System.out.println("1. Mostrar Promedio");
-        System.out.println("2. Menú Principal");
-        System.out.println("");
+        System.out.println("1. Ingresar ID");
+        System.out.println("2. Notas ID1 "+ID[0]);
+        System.out.println("3. Notas ID2 "+ID[1]);
+        System.out.println("4. Notas ID3 "+ID[2]);
+        System.out.println("5. Notas ID4 "+ID[3]);
+        System.out.println("6. Notas ID5 "+ID[4]);
+        System.out.println("7. Notas ID6 "+ID[5]);
+        System.out.println("8. Menú Principal ");
         int op4;//Opción el menú Promedio
         op4 = leer.nextInt();
         switch (op4){
             case 1:
+                    Id();
                 break;
             case 2:
+                    NotasID1();
+                break;
+            case 3:
+                    NotasID2();
+                break;
+            case 4:
+                    NotasID3();
+                break;
+            case 5:
+                    NotasID4();
+                break;
+            case 6:
+                    NotasID5();
+                break;
+            case 7:
+                    NotasID6();
+                break;
+            case 8:
                 System.out.println("\n\n\n");
                 MenuP();
                 break;
@@ -285,4 +318,216 @@ public class MenuPrincipal {
                 Promedio();
         }
     }
-}
+    public void Id(){
+        System.out.println("\n\nIngrese los ID");
+        contador = 1;
+        User=null;
+        res=0;
+        for(i=0;i<6;i++){
+            System.out.println("Ingrese ID No."+contador);
+            User = leer.next();
+            ID[i]=User;  
+            contador++;
+        }
+        System.out.println("\n");
+        Promedio();
+    }
+    public void NotasID1(){
+        System.out.println("NOTAS ID: "+ID[0]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[0]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[0]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas1[i] = leer.nextInt();
+                res = res + notas1[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[0]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas1[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID1();
+    }
+    public void NotasID2(){
+        System.out.println("NOTAS ID: "+ID[1]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[1]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[1]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas2[i] = leer.nextInt();
+                res = res + notas2[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[1]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas2[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID2();
+    }
+    public void NotasID3(){
+        System.out.println("NOTAS ID: "+ID[2]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[2]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[2]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas3[i] = leer.nextInt();
+                res = res + notas3[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[2]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas3[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID3();
+    }
+    public void NotasID4(){
+        System.out.println("NOTAS ID: "+ID[3]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[3]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[3]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas4[i] = leer.nextInt();
+                res = res + notas4[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[3]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas4[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID4();
+    }
+    public void NotasID5(){
+        System.out.println("NOTAS ID: "+ID[4]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[4]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[4]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas5[i] = leer.nextInt();
+                res = res + notas5[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[4]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas5[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID5();
+    }
+    public void NotasID6(){
+        System.out.println("NOTAS ID: "+ID[5]+"\n");
+        System.out.println("1. Ingresar Notas de "+ID[5]);
+        System.out.println("2. Mostrar Notas Y Promedio");
+        System.out.println("3. Volver");
+        Num=leer.nextInt();
+        switch(Num){
+            case 1:
+            System.out.println("\n\nIngrese notas de "+ID[5]);
+            res=0;
+            for (i=0;i<4;i++){
+                System.out.println("Ingrese Nota "+(i+1));
+                notas6[i] = leer.nextInt();
+                res = res + notas6[i];
+            }break;
+            case 2:
+                promedio = res/4;
+                System.out.println("Notas de "+ID[5]);
+                    for (i=0;i<4;i++){
+                    System.out.println("Nota "+(i+1)+":    "+notas6[i]);
+                }
+                    System.out.println("------------------");
+                    System.out.println("Promedio = "+promedio);
+                    break;
+            case 3:
+                Promedio();
+                break;
+            default:
+                System.out.println("Opción incorrecta");
+    }
+        System.out.println("\n");
+        NotasID6();
+    }
+   }
